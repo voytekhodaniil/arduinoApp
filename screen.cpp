@@ -1,7 +1,5 @@
 #include "screen.h"
-
-
-
+/**/
 
   SCREEN::SCREEN(){};
 
