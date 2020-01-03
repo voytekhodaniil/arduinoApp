@@ -5,13 +5,13 @@
 #include <WString.h>
 class SCREEN;
 class WIDGET{
-   private:
+   protected:
   
     
-    bool Checked=0;
-    bool WidgetOver=0;
-    bool WidgetStatus=0;
-    String WidgetString;
+    bool Checked=0;                //Is now cursor on widget 
+    bool WidgetOver=0;             //Is widget overrwrite scren    exmp: opened new Screen 
+    bool WidgetStatus=0;           //Some bool   data about widget exmp: isTriggered
+    String WidgetString;           //Some String data about widget exmp: onWidget Text
 
     public:
     
@@ -21,7 +21,9 @@ class WIDGET{
     virtual void WidgetOverPrint();
     virtual void ButtonPress(char b);   
     virtual void print(int wh);
-    void setWidgetString(String str);
+    
+    //Setters-Getters
+    virtual void setWidgetString(String str){this->WidgetString = str;}
     String getWidgetString();
     void setWidgetStatus(bool b);
     bool getWidgetStatus();

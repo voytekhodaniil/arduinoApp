@@ -2,33 +2,48 @@
 #include "widget.h"
 #include "disp.h"
 /*
- *Line widget
- *Element in Screen wich
- *
- *
+ *LineDisplay widget
+ *Element in Screen which just show text
+ constructor:
+      LineDisplay(SCREEN* p,String s) -  p-parent of widget; s-onWidget String
+ fun:
+    void print(int wh) - draw widget at wh num on string
+    **  see widget.h  **
 */
- 
-  class LineDisplay: public WIDGET{
+class Line: public WIDGET{
     public:
-    
-    LineDisplay(){};
-    LineDisplay(SCREEN* p,String s){
+
+    Line(){};
+    Line(SCREEN* p,String s){
       parent = p;
       setWidgetString(s);
       }
       void print(int wh)  {
         display.setCursor(2, wh*16+2);
         if(getChecked()){
-          display.drawRect(0, wh*16, 128, 15, WHITE);
+
           display.setTextColor(WHITE);
         }
         else{
-          display.fillRect(0, wh*16, 128, 15, WHITE);
+          display.fillRect(0, wh*16, 128, 16, WHITE);
           display.setTextColor(BLACK);
         }
         display.print(getWidgetString());
       }
     };
+
+    /*
+   *Trigger widget
+   *Element in Screen which can change his status 
+   constructor:
+        Trigger(SCREEN* p,String s) -  p-parent of widget; s-onWidget String
+   fun:
+      void print(int wh) - draw widget at wh num on string
+      void ButtonPress(char b) - on '5' change status
+      
+      **  see widget.h  **
+  */
+    
     class Trigger: public WIDGET{
     public:
     
@@ -41,7 +56,11 @@
         if(b=='5')
            setWidgetStatus(!getWidgetStatus());  
       }
-      
+       virtual void setWidgetString(String str){
+        this->WidgetString = str;
+        if( this->WidgetString.length()>10)
+          this->WidgetString.remove(10);
+        }
       void print(int wh)  {
         display.setCursor(2, wh*16+2);
         if(getChecked()){

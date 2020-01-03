@@ -4,7 +4,7 @@
    
    void WIDGET::ButtonPress(char b){}   
    void WIDGET::print(int wh){}
-   void WIDGET::setWidgetString(String str){this->WidgetString = str;}
+   
    void WIDGET::setWidgetStatus(bool b){this->WidgetStatus=b;}
    bool WIDGET::getWidgetStatus(){return WidgetStatus;}
    bool WIDGET::getWidgetOver(){return WidgetOver;}

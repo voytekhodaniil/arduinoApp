@@ -37,11 +37,11 @@
       setArraySize(10);
       widgets = new WIDGET* [getArraySize()];
       for(int a=0;a<4;a++){
-        widgets[a] = new LineDisplay(this,"Hello num "+String(a));
+        widgets[a] = new Line(this,"Hello num "+String(a));
        // widgets[a].str = "Hello num "+String(a);
       }
       for(int a=4;a<9;a++){
-        widgets[a] = new LineDisplay(this,"Hello my num is"+String(a));
+        widgets[a] = new Line(this,"Hello my num is"+String(a));
        // widgets[a].str = "Hello num "+String(a);
       }
       widgets[9]= new Trigger(this,"Do you like?");
