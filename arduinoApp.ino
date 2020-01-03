@@ -1,11 +1,7 @@
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+
 #include "screen.h"
 #include "widget.h"
-Adafruit_SSD1306 display(128,64, &Wire);
-
+#include "disp.h"
 
 
 /* ESSENTIAL GRAPHIC ELEMENTS
