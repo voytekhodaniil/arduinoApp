@@ -1,11 +1,12 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 #include <WString.h>
-#include "widget.h" 
+
+class WIDGET;
 class SCREEN{
- private:
+ protected:
   
-  SCREEN* parent;
+  WIDGET* parent;
   String attr;
   bool check;
   unsigned int ArrayPos=0;  // Position of current widget in array index
@@ -14,11 +15,13 @@ class SCREEN{
   
   
  public:
+ bool re=0;
   WIDGET** widgets;
   SCREEN();
-  
-  virtual void ButtonPress(char b);
-  void print();  //error may
+  SCREEN(WIDGET* p);
+   void ButtonPress(char b);
+  virtual void ButtonPressRaw(char b){};
+  void print();  
   void move(bool v);
   
   void setArrayPos(unsigned int pos);
