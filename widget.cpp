@@ -35,7 +35,6 @@ void WIDGET::setWidgetOver(bool b) {
 }
 void WIDGET::ButtonPress(char b) {
   if (getWidgetOver()) {
-    // Serial.println("SEND TO NEXT NESTED SCREEN");
     this->child->ButtonPress(b);
 
   }

@@ -3,15 +3,6 @@
 #include "widget.h"
 #include "disp.h"
 
-/*
-  LineDisplay widget
-  Element in Screen which just show text
-  constructor:
-      LineDisplay(SCREEN* p,String s) -  p-parent of widget; s-onWidget String
-  fun:
-    void print(int wh) - draw widget at wh num on string
-    **  see widget.h  **
-*/
 class WIDGET;
 class Line: public WIDGET {
   public:
@@ -25,17 +16,6 @@ class Line: public WIDGET {
 
 };
 
-/*
-  Trigger widget
-  Element in Screen which can change his status
-  constructor:
-    Trigger(SCREEN* p,String s) -  p-parent of widget; s-onWidget String
-  fun:
-  void print(int wh) - draw widget at wh num on string
-  void ButtonPress(char b) - on '5' change status
-
-  **  see widget.h  **
-*/
 
 class Trigger: public WIDGET {
   public:

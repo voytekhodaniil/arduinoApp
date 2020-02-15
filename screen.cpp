@@ -56,15 +56,12 @@ void SCREEN::move(bool v) {   // false - up, true - down
   }
 }
  void SCREEN::ButtonPress(char b) {
-  //  Serial.print("Screen buton Pressed ");
   if (widgets[getArrayPos()]->getWidgetOver()) {
-    //  Serial.println("Sending char to widget");
     widgets[getArrayPos()]->ButtonPress(b);
     if (re)
       print();
   }
   else {
-    //     Serial.println("Sending char to screen");
     ButtonPressRaw(b);
   }
 }

@@ -77,7 +77,6 @@ TextOpener::TextOpener(SCREEN* p, String s) {
   setWidgetString(s);
   parent = p;
   child = new TextView(this);
-// Serial.println("I SAY CREATED ");
 
 };
 void TextOpener::PrintRaw(int wh)  {
@@ -117,15 +116,14 @@ void TextWidget::PrintRaw(int wh)  {
   String dispTo = WidgetString.substring(pos*21,pos*21+8*21);
   Serial.println( wh );
 
-  
-    display.fillRect(0,0, 128,( wh - wh/10*10)*8, WHITE);
-    display.fillRect(0,( wh - wh/10*10+1)*8, 128,64, WHITE);
-    
+  display.fillRect(0,0, 128,64, WHITE);  
     display.setCursor(0,0);
     display.setTextColor(BLACK);
   
   display.print(dispTo);
+      display.fillRect(0,(wh%10)*8, 128,8, INVERSE);
 }
+
 TextWidget::TextWidget(SCREEN* p, String s) {
   WidgetString =s;
   parent = p;

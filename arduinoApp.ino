@@ -10,20 +10,6 @@
 */
 
 
-/*class Text : public SCREEN{
-  void ButtonPress   (char b){
-  if(!widgets[getArrayPos()]->getWidgetOver()){
-  widgets[getArrayPos()]->setChecked(0);
-  if(b=='2')move(0);
-  if(b=='8')move(1);
-  widgets[getArrayPos()]->setChecked(1);}
-  else widgets[getArrayPos()]->WidgetOverPrint();
-  widgets[getArrayPos()]->ButtonPress(b);
-  Serial.println("In array: "+String(getArrayPos())+" on screen:  "+String(getScreenPos()));
-  print();
-  }
-
-  }*/
 
 
 
