@@ -25,15 +25,15 @@ void SCREEN::setArraySize(unsigned int pos) {
 unsigned int SCREEN::getArraySize() {
   return ArraySize;
 }
-void SCREEN::print() {
+ void SCREEN::print() {
   display.clearDisplay();
-  for (int a = 0; a < 4; a++)
+  for (int a = 0; a < min(4,(int)ArraySize); a++)
     widgets[ArrayPos - ScreenPos + a]->print(a);
   display.display();
 }
 void SCREEN::move(bool v) {   // false - up, true - down
   if (!v) {
-    if (ScreenPos < 3) {
+    if (ScreenPos < min(ArraySize-1,screenHeigh)) {
       ScreenPos++;
       ArrayPos++;
     }
@@ -55,7 +55,7 @@ void SCREEN::move(bool v) {   // false - up, true - down
     }
   }
 }
-void SCREEN::ButtonPress(char b) {
+ void SCREEN::ButtonPress(char b) {
   //  Serial.print("Screen buton Pressed ");
   if (widgets[getArrayPos()]->getWidgetOver()) {
     //  Serial.println("Sending char to widget");

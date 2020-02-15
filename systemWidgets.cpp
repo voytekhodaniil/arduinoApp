@@ -72,15 +72,15 @@ void Trigger::PrintRaw(int wh)  {
 
 
 
-ButtonOpener::ButtonOpener(SCREEN* p, String s) {
+TextOpener::TextOpener(SCREEN* p, String s) {
 
   setWidgetString(s);
   parent = p;
-  child = new TEST(this);
+  child = new TextView(this);
 // Serial.println("I SAY CREATED ");
 
 };
-void ButtonOpener::PrintRaw(int wh)  {
+void TextOpener::PrintRaw(int wh)  {
   display.setCursor(2, wh * 16 + 2);
   if (getChecked()) {
 
@@ -92,12 +92,41 @@ void ButtonOpener::PrintRaw(int wh)  {
   }
   display.print(getWidgetString());
 }
-void ButtonOpener::ButtonPressRaw(char b) {
+void TextOpener::ButtonPressRaw(char b) {
   if (b == '5') {
     setWidgetOver(1);
   }
 }
 
-void ButtonOpener::WidgetOverPrint() {
+void TextOpener::WidgetOverPrint() {
   //child->print();
 }
+
+
+
+
+
+
+
+
+
+
+
+void TextWidget::PrintRaw(int wh)  {
+  int pos = wh/10-(wh - wh/10*10 );
+  String dispTo = WidgetString.substring(pos*21,pos*21+8*21);
+  Serial.println( wh );
+
+  
+    display.fillRect(0,0, 128,( wh - wh/10*10)*8, WHITE);
+    display.fillRect(0,( wh - wh/10*10+1)*8, 128,64, WHITE);
+    
+    display.setCursor(0,0);
+    display.setTextColor(BLACK);
+  
+  display.print(dispTo);
+}
+TextWidget::TextWidget(SCREEN* p, String s) {
+  WidgetString =s;
+  parent = p;
+};

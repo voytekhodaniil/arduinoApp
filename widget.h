@@ -24,7 +24,7 @@ class WIDGET {
     WIDGET(SCREEN* p, String s);
     virtual void WidgetOverPrint();
     void ButtonPress(char b);
-    bool print(int wh);
+     bool print(int wh);
 
     //Setters-Getters
     virtual void setWidgetString(String str) {

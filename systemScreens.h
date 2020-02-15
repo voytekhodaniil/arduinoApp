@@ -3,9 +3,11 @@
 #include "screen.h"
 
 
-class TEST :public SCREEN{
+class TextView :public SCREEN{
     public:
-    TEST(WIDGET * p);   
+    TextView(WIDGET * p);   
     void ButtonPressRaw   (char b);  
+    void print();
+    virtual void ButtonPress(char b);
     };
     #endif

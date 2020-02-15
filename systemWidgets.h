@@ -51,15 +51,27 @@ class Trigger: public WIDGET {
     void PrintRaw(int wh) ;
 };
 
-class ButtonOpener: public WIDGET {
+class TextOpener: public WIDGET {
   public:
 
-    ButtonOpener() {};
+    TextOpener() {};
 
-    ButtonOpener(SCREEN* p, String s);
+    TextOpener(SCREEN* p, String s);
 
     virtual void PrintRaw(int wh) ;
     void ButtonPressRaw(char b);
     virtual void WidgetOverPrint();
+};
+
+class TextWidget: public WIDGET {
+  public:
+
+    TextWidget() {};
+
+    TextWidget(SCREEN* p, String s);
+
+    virtual void PrintRaw(int wh) ;
+    void ButtonPressRaw(char b){}
+    virtual void WidgetOverPrint(){}
 };
 #endif

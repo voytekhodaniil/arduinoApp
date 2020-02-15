@@ -12,16 +12,16 @@ class SCREEN{
   unsigned int ArrayPos=0;  // Position of current widget in array index
   unsigned int ScreenPos=0;    // Position of current widget on screen pos
   unsigned int ArraySize=0;
-  
+  unsigned int screenHeigh =3;
   
  public:
  bool re=0;
   WIDGET** widgets;
   SCREEN();
   SCREEN(WIDGET* p);
-   void ButtonPress(char b);
+ virtual  void ButtonPress(char b);
   virtual void ButtonPressRaw(char b){};
-  void print();  
+  virtual void print();  
   void move(bool v);
   
   void setArrayPos(unsigned int pos);
