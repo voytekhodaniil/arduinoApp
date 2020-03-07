@@ -5,40 +5,34 @@
 #include <WString.h>
 
 
-TextView::TextView(WIDGET * p) {
-  //Serial.println("\t\t\tCREATED");
-  parent = p;
-  setArraySize(1);
-  widgets = new WIDGET* [getArraySize()];
+TextView::TextView(Widget * parent) {
+  Parent = parent;
+  ArraySize=1;
+  Widgets = new Widget* [ArraySize];
     
-    widgets[0] = new TextWidget(this, "Hello, this is wery long string, that will be able to use in real life.\n I love it because you can easelly Print MUCH text that is BrIlIaNt. So I think for easy copy righting text it will be fun. Anyway it is  better than use paper. Also it will be better to use in scool and others teaching institutions.(Yeah insititutu too). GoDbYe Hello, this is wery long string, that will be able to use in real life.\n I love it because you can easelly Print MUCH text that is BrIlIaNt. So I think for easy copy righting text it will be fun. Anyway it is  better than use paper. Also it will be better to use in scool and others teaching institutions.(Yeah insititutu too). GoDbYe");
-    screenHeigh= 8;
-    setArraySize(widgets[0]->getWidgetString().length()/20);
+    Widgets[0] = new TextWidget(this, "Hello, this is wery long string, that will be able to use in real life.\n I love it because you can easelly Print MUCH text that is BrIlIaNt. So I think for easy copy righting text it will be fun. Anyway it is  better than use paper. Also it will be better to use in scool and others teaching institutions.(Yeah insititutu too). GoDbYe Hello, this is wery long string, that will be able to use in real life.\n I love it because you can easelly Print MUCH text that is BrIlIaNt. So I think for easy copy righting text it will be fun. Anyway it is  better than use paper. Also it will be better to use in scool and others teaching institutions.(Yeah insititutu too). GoDbYe");
+    ScreenSize= 8;
+    ArraySize = Widgets[0]->Data[0].length()/20;
   
   
 }
 
-void TextView::ButtonPressRaw   (char b) {
+void TextView::ButtonPress   (char button) {
+	Serial.println(" Debug : TextView buttonpress start   " + String(Parent->Parent->WidgetOpened ));
 
-  if (b == '4') 
-    parent->setWidgetOver(0);
+  if (button == '4') {
+    Parent->Parent->WidgetOpened = 0;
+	  
+	  return;}
  
  
-    display.clearDisplay();
-
-    if (b == '2')move(0);
-    if (b == '8')move(1);
-    
+	if (button == '2'){Move(0); Widgets[0]->ButtonPress(button); }
+	else if (button == '8'){Move(1); Widgets[0]->ButtonPress(button); }
 
 
+ 
 
-  widgets[0]->ButtonPress(b);
-  print();
 }
-    void TextView::print(){
-      widgets[0]->print(getArrayPos()*10+getScreenPos());
+    void TextView::Print(){
+      Widgets[0]->Print(ArrayPos*10+ScreenPos,0);
     }
-
-void TextView::ButtonPress(char b) {
-ButtonPressRaw(b);
-}

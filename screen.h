@@ -2,34 +2,32 @@
 #define SCREEN_H
 #include <WString.h>
 
-class WIDGET;
-class SCREEN{
+class Widget;
+class Screen{
  protected:
   
-  WIDGET* parent;
-  String attr;
-  bool check;
-  unsigned int ArrayPos=0;  // Position of current widget in array index
-  unsigned int ScreenPos=0;    // Position of current widget on screen pos
-  unsigned int ArraySize=0;
-  unsigned int screenHeigh =3;
+  Widget* Parent;
+  
+  
   
  public:
- bool re=0;
-  WIDGET** widgets;
-  SCREEN();
-  SCREEN(WIDGET* p);
- virtual  void ButtonPress(char b);
-  virtual void ButtonPressRaw(char b){};
-  virtual void print();  
-  void move(bool v);
-  
-  void setArrayPos(unsigned int pos);
-  unsigned int getArrayPos();
-  void setScreenPos(unsigned int pos);
-  unsigned int getScreenPos();
-  void setArraySize(unsigned int pos);
-  unsigned int getArraySize();
+ 
+unsigned int ArrayPos=0;  // Position of current widget in array index
+  unsigned int ScreenPos=0;    // Position of current widget on screen pos
+  unsigned int ArraySize=0;
+  unsigned int ScreenSize =4;
+
+
+ 
+bool WidgetOpened=0;
+  Widget** Widgets;
+  Screen();
+  Screen(Widget* parent);
+
+  virtual void Print();  
+  void Move(bool vector);
+  virtual Screen* GetScreen(char button) ;
+  virtual void ButtonPress(char button){};
   };
   
   #endif

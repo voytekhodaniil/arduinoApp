@@ -2,14 +2,29 @@
 #include "screen.h"
 #include <Arduino.h>
 
-WIDGET:: WIDGET() {}
-WIDGET:: WIDGET(SCREEN* p, String s) {
-  parent = p;
-  setWidgetString("12321");
+Widget:: Widget() {Parent = new Screen;}
+Widget:: Widget(Screen* parent, String string) {
+	Serial.println(" Debug : widget constructor start "+string+String(DataSize));
+
+  Parent = parent;
+
+	  Serial.println(" Debug : widget constructor new data created " + string);
+
+  Data = new String[1];
+  Data[0]=string;
+  DataSize =1;
+
+	
+  Serial.println(" Debug : widget constructor end " + Data[0]);
+
+}
+Screen* Widget::GetScreen(char button){
+	Serial.println(" Debug : widget child reeturned");
+
+  return Child->GetScreen(button);
 }
 
-
-
+/*
 void WIDGET::setWidgetStatus(bool b) {
   this->WidgetStatus = b;
 }
@@ -46,4 +61,4 @@ bool WIDGET::print(int wh) {
     WidgetOverPrint();
   else PrintRaw(wh);
 
-}
+}*/

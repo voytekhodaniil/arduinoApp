@@ -3,55 +3,43 @@
 #include "widget.h"
 #include "disp.h"
 
-class WIDGET;
-class Line: public WIDGET {
+class Widget;
+class Line: public Widget {
   public:
 
-    Line() {};
-    Line(SCREEN* p, String s) {
-      parent = p;
-      setWidgetString(s);
-    };
-    void PrintRaw(int wh);
+    Line(Screen* parent, String string) : Widget(parent,string) {};
+    void Print(int position,bool AtCursor);
 
 };
 
 
-class Trigger: public WIDGET {
+class Trigger: public Widget {
   public:
 
-    Trigger();
-    Trigger(SCREEN* p, String s) {
-      parent = p;
-      setWidgetString(s);
-      stringLenth = 9;
-    }
-    void ButtonPressRaw(char b);
+	Trigger(Screen* parent, String string) ;
+ Trigger(); 
+    void ButtonPress(char button);
 
-    void PrintRaw(int wh) ;
+    void Print(int position,bool AtCursor) ;
 };
 
-class TextOpener: public WIDGET {
+class TextOpener: public Widget {
   public:
 
-    TextOpener() {};
+	TextOpener(Screen* parent, String string);
 
-    TextOpener(SCREEN* p, String s);
-
-    virtual void PrintRaw(int wh) ;
-    void ButtonPressRaw(char b);
+    virtual void Print(int position,bool AtCursor) ;
+    void ButtonPress(char button);
     virtual void WidgetOverPrint();
 };
 
-class TextWidget: public WIDGET {
+class TextWidget: public Widget {
   public:
 
-    TextWidget() {};
+	TextWidget(Screen* parent, String string)
+		: Widget(parent, string) {};
 
-    TextWidget(SCREEN* p, String s);
-
-    virtual void PrintRaw(int wh) ;
-    void ButtonPressRaw(char b){}
-    virtual void WidgetOverPrint(){}
+    virtual void Print(int position,bool AtCursor);
+    void ButtonPress(char buton){}
 };
 #endif

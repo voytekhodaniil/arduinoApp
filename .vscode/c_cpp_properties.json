@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\Dan\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library",
+                "C:\\Users\\Dan\\Documents\\Arduino\\libraries\\Adafruit_SSD1306",
+                "C:\\Users\\Dan\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Users\\Dan\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.6.3\\**",
+                "C:\\Users\\Dan\\Desktop\\arduinoApp\\**",
+                "C:\\Users\\Dan\\Desktop\\arduino-1.8.12\\hardware\\arduino\\avr\\cores\\arduino\\**",
+                "${workspaceRoot}"
+            ],
+            
+            "forcedInclude": [                "${workspaceRoot}"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:/mingw-w64/mingw64/bin/gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

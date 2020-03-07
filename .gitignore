@@ -1,0 +1,7 @@
+/.git/
+/.vs/
+/.vscode/
+/__vm__/
+/Debug/
+arduinoApp.sln
+
